@@ -10,6 +10,10 @@ node_modules
 # don't push the environment vars!
 .env
 
+# coverage related files
+coverage.json
+coverage
+
 # Built application files
 .DS*
 *.apk

@@ -6,6 +6,7 @@ require("@nomiclabs/hardhat-ethers")
 require("@nomiclabs/hardhat-truffle5")
 require("@nomiclabs/hardhat-etherscan")
 require("hardhat-deploy")
+require("solidity-coverage")
 require("./tasks/accounts")
 require("./tasks/balance")
 require("./tasks/fund-link")
@@ -15,6 +16,7 @@ require("./tasks/block-number")
 require("./tasks/random-number-consumer")
 require("./tasks/price-consumer")
 require("./tasks/api-consumer")
+require("./tasks/my-first-contract")
 
 
 require('dotenv').config()
@@ -31,19 +33,20 @@ module.exports = {
     defaultNetwork: "hardhat",
     networks: {
         hardhat: {
-            // // If you want to do some forking, uncomment this
-            // forking: {
-            //   url: MAINNET_RPC_URL
-            // }
+            // If you want to do some forking, uncomment this
+            forking: {
+              url: MAINNET_RPC_URL,
+            //   blockNumber: 11095000
+            }
         },
         localhost: {
         },
         kovan: {
             url: KOVAN_RPC_URL,
-            // accounts: [PRIVATE_KEY],
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
+            accounts: [PRIVATE_KEY],
+            // accounts: {
+            //     mnemonic: MNEMONIC,
+            // },
             saveDeployments: true,
         },
         rinkeby: {
